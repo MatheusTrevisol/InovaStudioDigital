@@ -35,7 +35,7 @@ export function Contact() {
     SetIsLoading(true);
 
     // Send the form after 3sec;
-    const response = await emailjs.sendForm("service_gaa50pc", "template_q0rk19c", "#form", "P-czOKJt62SkCkaXx")
+    const response = await emailjs.sendForm("service_gaa50pc", "template_bbirrnt", "#form", "P-czOKJt62SkCkaXx")
 
     if(response.status === 200) {
       SetIsLoading(false);

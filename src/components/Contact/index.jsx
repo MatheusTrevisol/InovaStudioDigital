@@ -25,31 +25,31 @@ export function Contact() {
   const [isLoading, SetIsLoading] = useState(false);
   const [successEmailComponent, SetSuccessEmailComponent] = useState(false);
 
-  const nameValue = document.getElementById("name");
-  const emailValue = document.getElementById("email");
-  const whatsappValue = document.getElementById("whatsapp");
-  const companyValue = document.getElementById("company");
-  const messageValue = document.getElementById("message");
-  
   async function handleSendEmail() {
     SetIsLoading(true);
 
-    // Send the form after 3sec;
-    const response = await emailjs.sendForm("service_gaa50pc", "template_bbirrnt", "#form", "P-czOKJt62SkCkaXx")
+    // Send the form after 3sec;      
+    const response = await emailjs.sendForm("service_1p0yhdt", "template_bbirrnt", "#form", "FbEgBzLgq_FNiJL-O"); 
 
     if(response.status === 200) {
       SetIsLoading(false);
       SetSuccessEmailComponent(true);
-       
+              
+      let nameValue = document.getElementById("name");
+      let emailValue = document.getElementById("email");
+      let whatsappValue = document.getElementById("whatsapp");
+      let companyValue = document.getElementById("company");
+      let messageValue = document.getElementById("message");
+
       /* remove de span success msg and reset the inputs */
+      nameValue.value = '';
+      emailValue.value = '';
+      whatsappValue.value = '';
+      companyValue.value = '';
+      messageValue.value = '';
+
       setTimeout(() => {
         SetSuccessEmailComponent(false);
-
-        nameValue.value = '';
-        emailValue.value = '';
-        whatsappValue.value = '';
-        companyValue.value = '';
-        messageValue.value = '';
       }, 3000);
     } else {
       SetIsLoading(false);
